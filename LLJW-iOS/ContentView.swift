@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var api = APIService()
+    
     var body: some View {
-        Text("Hello, World!")
+        List(api.quotes, id: \.self) { quote in
+            QuoteListView(quote: quote)
+        }
+        .onAppear {
+            self.api.fetch()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
