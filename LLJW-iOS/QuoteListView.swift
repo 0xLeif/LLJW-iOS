@@ -28,10 +28,11 @@ struct QuoteListView: View {
             LinearGradient(gradient: Gradient(colors: [.purple, .pink]),
                            startPoint: .topTrailing,
                            endPoint: .bottomLeading)
+                .blur(radius: 4)
         )
-        .cornerRadius(8)
-        .padding(8)
-        .shadow(color: .purple, radius: 8, x: 1, y: 1)
+            .cornerRadius(8)
+            .padding(8)
+            .shadow(color: .purple, radius: 8, x: 1, y: 1)
     }
 }
 
@@ -39,11 +40,11 @@ struct QuoteListView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-
+            
             QuoteListView(quote: Quote(id: nil,
                                        title: "Some Quote",
                                        quote: String(repeating: "Ipsum ", count: 25)))
-
+            
             QuoteListView(quote: Quote(id: nil,
                                        title: "Some Quote",
                                        quote: String(repeating: "Ipsum ", count: 25)))
